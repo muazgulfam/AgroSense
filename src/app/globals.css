@@ -4,95 +4,95 @@
 
 @layer base {
   :root {
-    --background: 60 56% 91%; /* Light Beige (#F5F5DC) */
-    --foreground: 20 10% 20%; /* Dark Brown/Gray for readability */
+    --background: 60 56% 91%; /* Light Beige */
+    --foreground: 45 20% 25%; /* Dark Brownish Gray */
 
-    --card: 60 60% 96%; /* Slightly whiter beige for cards */
-    --card-foreground: 20 10% 20%;
+    --card: 60 50% 95%; /* Lighter Beige for cards */
+    --card-foreground: 45 20% 25%; /* Dark Brownish Gray */
 
-    --popover: 60 60% 96%;
-    --popover-foreground: 20 10% 20%;
+    --popover: 60 50% 95%; /* Lighter Beige */
+    --popover-foreground: 45 20% 25%; /* Dark Brownish Gray */
 
-    --primary: 123 44% 39%; /* Earthy Green (#388E3C) */
-    --primary-foreground: 60 100% 97%; /* Light beige/off-white for text on primary */
+    --primary: 122 40% 42%; /* Earthy Green */
+    --primary-foreground: 60 50% 95%; /* Light Beige Text on Primary */
 
-    --secondary: 60 30% 85%; /* Slightly darker/muted beige for secondary elements */
-    --secondary-foreground: 20 10% 20%;
+    --secondary: 122 30% 60%; /* Lighter Earthy Green */
+    --secondary-foreground: 122 40% 20%; /* Dark Green Text */
 
-    --muted: 60 30% 80%; /* Muted beige for less important text backgrounds */
-    --muted-foreground: 60 20% 45%; /* Muted beige text color */
+    --muted: 60 40% 93%; /* Muted Light Beige */
+    --muted-foreground: 60 20% 50%; /* Muted Darker Beige */
 
-    --accent: 45 100% 51%; /* Golden Yellow (#FFC107) */
-    --accent-foreground: 20 10% 10%; /* Very dark, almost black for text on yellow */
+    --accent: 45 100% 51%; /* Golden Yellow */
+    --accent-foreground: 45 100% 15%; /* Dark Brown Text on Accent */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 60 30% 75%; /* Beige-tinted border */
-    --input: 60 30% 75%; /* Beige-tinted input border */
-    --ring: 123 44% 39%; /* Earthy green for focus rings */
+    --border: 60 30% 85%; /* Beige-tinted Border */
+    --input: 60 30% 85%; /* Beige-tinted Input Border */
+    --ring: 122 40% 42%; /* Earthy Green for Focus Rings */
 
     --radius: 0.5rem;
 
-    --chart-1: 123 44% 39%;
-    --chart-2: 45 100% 51%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    --chart-1: 122 40% 42%; /* Earthy Green */
+    --chart-2: 45 100% 51%; /* Golden Yellow */
+    --chart-3: 30 60% 50%;  /* Earthy Orange for contrast */
+    --chart-4: 200 50% 60%; /* Muted Blue for contrast */
+    --chart-5: 90 30% 55%; /* Olive Green */
 
-    --sidebar-background: 60 50% 88%; /* Lighter beige for sidebar */
-    --sidebar-foreground: 20 10% 25%;
-    --sidebar-primary: 123 44% 39%;
-    --sidebar-primary-foreground: 60 100% 97%;
-    --sidebar-accent: 45 100% 51%;
-    --sidebar-accent-foreground: 20 10% 10%;
-    --sidebar-border: 60 30% 75%;
-    --sidebar-ring: 123 44% 39%;
+    --sidebar-background: 60 50% 93%; /* Light Beige variant for sidebar */
+    --sidebar-foreground: 45 20% 20%; /* Dark Brownish Gray */
+    --sidebar-primary: 122 40% 42%; /* Earthy Green */
+    --sidebar-primary-foreground: 60 50% 95%; /* Light Beige Text */
+    --sidebar-accent: 45 100% 51%; /* Golden Yellow */
+    --sidebar-accent-foreground: 45 100% 15%; /* Dark Brown Text */
+    --sidebar-border: 60 30% 80%; /* Slightly darker beige border */
+    --sidebar-ring: 122 40% 42%; /* Earthy Green */
   }
 
   .dark {
-    --background: 123 15% 10%; /* Very dark desaturated green */
-    --foreground: 60 56% 91%; /* Light beige text */
+    --background: 120 25% 15%; /* Very Dark Green */
+    --foreground: 60 50% 85%; /* Light Beige Text */
 
-    --card: 123 15% 12%;
-    --card-foreground: 60 56% 91%;
+    --card: 120 25% 18%; /* Slightly Lighter Dark Green */
+    --card-foreground: 60 50% 85%;
 
-    --popover: 123 15% 12%;
-    --popover-foreground: 60 56% 91%;
+    --popover: 120 25% 18%;
+    --popover-foreground: 60 50% 85%;
 
-    --primary: 123 44% 55%; /* Lighter Earthy Green */
-    --primary-foreground: 123 15% 5%; /* Darker text for lighter primary */
+    --primary: 122 40% 50%; /* Brighter Earthy Green */
+    --primary-foreground: 122 40% 10%; /* Dark Green Text */
 
-    --secondary: 123 15% 15%;
-    --secondary-foreground: 60 56% 91%;
+    --secondary: 120 20% 30%; /* Muted Dark Green */
+    --secondary-foreground: 60 50% 85%;
 
-    --muted: 123 15% 20%;
-    --muted-foreground: 60 30% 70%;
+    --muted: 120 15% 25%; /* Darker Muted Green */
+    --muted-foreground: 60 30% 70%; /* Lighter Muted Beige */
 
-    --accent: 45 100% 60%; /* Lighter Golden Yellow */
-    --accent-foreground: 45 20% 10%; /* Dark text for accent */
+    --accent: 45 80% 60%; /* Desaturated Golden Yellow */
+    --accent-foreground: 45 100% 10%; /* Very Dark Brown */
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 70% 50%; /* Slightly desaturated red */
+    --destructive-foreground: 0 0% 95%;
 
-    --border: 123 15% 25%;
-    --input: 123 15% 25%;
-    --ring: 123 44% 55%;
+    --border: 120 15% 28%; /* Dark Greenish Border */
+    --input: 120 15% 28%;
+    --ring: 122 40% 50%; /* Brighter Earthy Green */
 
-    --chart-1: 123 44% 55%;
-    --chart-2: 45 100% 60%;
-    --chart-3: 197 37% 44%;
-    --chart-4: 43 74% 76%;
-    --chart-5: 27 87% 77%;
+    --chart-1: 122 40% 50%;
+    --chart-2: 45 80% 60%;
+    --chart-3: 30 50% 55%;
+    --chart-4: 200 40% 55%;
+    --chart-5: 90 25% 50%;
     
-    --sidebar-background: 123 15% 8%; 
+    --sidebar-background: 120 25% 12%; /* Darker Green */
     --sidebar-foreground: 60 50% 88%;
-    --sidebar-primary: 123 44% 55%;
-    --sidebar-primary-foreground: 123 15% 5%;
-    --sidebar-accent: 45 100% 60%;
-    --sidebar-accent-foreground: 45 20% 10%;
-    --sidebar-border: 123 15% 25%;
-    --sidebar-ring: 123 44% 55%;
+    --sidebar-primary: 122 40% 50%;
+    --sidebar-primary-foreground: 122 40% 10%;
+    --sidebar-accent: 45 80% 60%;
+    --sidebar-accent-foreground: 45 100% 10%;
+    --sidebar-border: 120 15% 25%;
+    --sidebar-ring: 122 40% 50%;
   }
 }
 
@@ -102,6 +102,8 @@
   }
   body {
     @apply bg-background text-foreground;
-    /* Removed Arial, Helvetica default to allow Geist font from layout.tsx */
+  }
+  html {
+    scroll-behavior: smooth;
   }
 }

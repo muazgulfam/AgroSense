@@ -1,7 +1,7 @@
 
 "use client";
 
-import * as z from "zod"; // Changed from type-only import
+import * as z from "zod"; 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import Image from "next/image";
@@ -24,15 +24,15 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Loader2, UploadCloud, Leaf, Carrot, Flower2, Wheat } from "lucide-react"; // Removed AlertCircle as it's not used
+import { Loader2, UploadCloud, Leaf, Carrot, Flower2, Wheat } from "lucide-react"; 
 import { useState, type ReactNode } from "react";
 
 export const cropTypes = [
-  { value: "Guava", label: "Guava", icon: <Leaf className="w-4 h-4 mr-2" /> },
-  { value: "Mango", label: "Mango", icon: <Leaf className="w-4 h-4 mr-2" /> },
-  { value: "Tomato", label: "Tomato", icon: <Carrot className="w-4 h-4 mr-2" /> },
-  { value: "Cotton", label: "Cotton", icon: <Flower2 className="w-4 h-4 mr-2" /> },
-  { value: "Rice", label: "Rice", icon: <Wheat className="w-4 h-4 mr-2" /> },
+  { value: "Guava", label: "Guava", icon: <Leaf className="w-4 h-4 mr-2 text-primary" /> },
+  { value: "Mango", label: "Mango", icon: <Leaf className="w-4 h-4 mr-2 text-primary" /> },
+  { value: "Tomato", label: "Tomato", icon: <Carrot className="w-4 h-4 mr-2 text-primary" /> },
+  { value: "Cotton", label: "Cotton", icon: <Flower2 className="w-4 h-4 mr-2 text-primary" /> },
+  { value: "Rice", label: "Rice", icon: <Wheat className="w-4 h-4 mr-2 text-primary" /> },
 ];
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
@@ -43,7 +43,7 @@ export const diagnosisFormSchema = z.object({
   photo: z
     .custom<FileList>()
     .refine((files) => files && files.length === 1, "A photo of the crop is required.")
-    .transform(files => files[0]) // Get the first file
+    .transform(files => files[0]) 
     .refine((file) => file.size <= MAX_FILE_SIZE, `Photo must be 5MB or less.`)
     .refine(
       (file) => ACCEPTED_IMAGE_TYPES.includes(file.type),
@@ -67,7 +67,6 @@ export function DiseaseDiagnosisForm({ onSubmit, isLoading }: DiseaseDiagnosisFo
     defaultValues: {
       cropType: "",
       symptoms: "",
-      // photo: undefined, // It's better to not set default for FileList
     },
   });
 
@@ -75,7 +74,6 @@ export function DiseaseDiagnosisForm({ onSubmit, isLoading }: DiseaseDiagnosisFo
     const files = event.target.files;
     if (files && files.length > 0) {
       const file = files[0];
-      // Manually trigger validation for the photo field with FileList
       form.setValue("photo", files as unknown as FileList, { shouldValidate: true }); 
       const reader = new FileReader();
       reader.onloadend = () => {
@@ -84,17 +82,13 @@ export function DiseaseDiagnosisForm({ onSubmit, isLoading }: DiseaseDiagnosisFo
       reader.readAsDataURL(file);
     } else {
       setPreviewImage(null);
-      form.setValue("photo", undefined as any, { shouldValidate: true }); // Clear value and validate
+      form.setValue("photo", undefined as any, { shouldValidate: true }); 
     }
   };
 
   return (
-    <Card className="w-full shadow-lg">
-      <CardHeader>
-        <CardTitle className="text-2xl font-semibold text-primary">Crop Disease Diagnosis</CardTitle>
-        <CardDescription>Upload an image of your crop and describe any symptoms to get an AI-powered diagnosis.</CardDescription>
-      </CardHeader>
-      <CardContent>
+    <Card className="w-full shadow-none border-none bg-transparent">
+      <CardContent className="p-0">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <FormField
@@ -102,10 +96,10 @@ export function DiseaseDiagnosisForm({ onSubmit, isLoading }: DiseaseDiagnosisFo
               name="cropType"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Crop Type</FormLabel>
+                  <FormLabel className="text-foreground/80">Crop Type</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value} disabled={isLoading}>
                     <FormControl>
-                      <SelectTrigger>
+                      <SelectTrigger className="bg-background hover:bg-muted">
                         <SelectValue placeholder="Select a crop type" />
                       </SelectTrigger>
                     </FormControl>
@@ -130,26 +124,26 @@ export function DiseaseDiagnosisForm({ onSubmit, isLoading }: DiseaseDiagnosisFo
               name="photo"
               render={({ field }) => ( 
                 <FormItem>
-                  <FormLabel>Crop Photo</FormLabel>
+                  <FormLabel className="text-foreground/80">Crop Photo</FormLabel>
                   <FormControl>
                     <Input
                       type="file"
                       accept={ACCEPTED_IMAGE_TYPES.join(",")}
-                      onChange={handlePhotoChange} // Use custom handler
+                      onChange={handlePhotoChange} 
                       disabled={isLoading}
-                      className="block w-full text-sm file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20"
+                      className="block w-full text-sm file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 bg-background hover:bg-muted"
                     />
                   </FormControl>
                   {previewImage && (
-                     <div className="mt-4 p-2 border border-dashed border-border rounded-md flex justify-center items-center bg-muted/50 aspect-video max-h-64">
-                      <Image src={previewImage} alt="Crop preview" width={200} height={150} className="max-h-full w-auto object-contain rounded-md" data-ai-hint="crop preview" />
+                     <div className="mt-4 p-2 border border-dashed border-border rounded-md flex justify-center items-center bg-muted/50 aspect-[16/10] max-h-72">
+                      <Image src={previewImage} alt="Crop preview" width={250} height={200} className="max-h-full w-auto object-contain rounded-md shadow-md" data-ai-hint="crop preview" />
                     </div>
                   )}
                    {!previewImage && (
-                    <div className="mt-2 flex items-center justify-center w-full h-32 border-2 border-dashed border-border rounded-md bg-muted/30">
+                    <div className="mt-2 flex items-center justify-center w-full h-40 border-2 border-dashed border-border rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors">
                       <div className="text-center text-muted-foreground">
-                        <UploadCloud className="mx-auto h-8 w-8 mb-1" />
-                        <p className="text-xs">Click to upload or drag and drop</p>
+                        <UploadCloud className="mx-auto h-10 w-10 mb-2 text-primary/70" />
+                        <p className="text-sm font-medium">Click to upload or drag and drop</p>
                         <p className="text-xs">PNG, JPG, WEBP up to 5MB</p>
                       </div>
                     </div>
@@ -164,11 +158,12 @@ export function DiseaseDiagnosisForm({ onSubmit, isLoading }: DiseaseDiagnosisFo
               name="symptoms"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Symptoms (Optional)</FormLabel>
+                  <FormLabel className="text-foreground/80">Symptoms (Optional)</FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder="e.g., yellow spots on leaves, wilting, etc."
-                      className="resize-none"
+                      placeholder="e.g., yellow spots on leaves, wilting, stem discoloration, etc."
+                      className="resize-none bg-background hover:bg-muted"
+                      rows={3}
                       {...field}
                       disabled={isLoading}
                     />
@@ -178,10 +173,10 @@ export function DiseaseDiagnosisForm({ onSubmit, isLoading }: DiseaseDiagnosisFo
               )}
             />
 
-            <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground" disabled={isLoading}>
+            <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 text-base" disabled={isLoading}>
               {isLoading ? (
                 <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
                   Diagnosing...
                 </>
               ) : (
