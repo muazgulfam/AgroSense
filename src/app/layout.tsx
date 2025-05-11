@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'AgriAssist - AI Powered Farming Support',
+  title: 'AgroSense - AI Powered Farming Support',
   description: 'Empowering farmers with AI disease diagnosis, weather insights, and a direct marketplace.',
 };
 
