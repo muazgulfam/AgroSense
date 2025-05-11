@@ -11,6 +11,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button"; // Added import for Button
 
 const newsItems = [
   {
@@ -114,3 +115,4 @@ export function NewsCarousel() {
     </div>
   );
 }
+
